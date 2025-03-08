@@ -1,0 +1,21 @@
+"dir:" 
+ Volume in drive C is Windows
+ Volume Serial Number is CC30-18B4
+
+ Directory of C:\tmp\hadoop-ellie\nm-local-dir\usercache\ellie\appcache\application_1741395786741_0002\container_1741395786741_0002_01_000001
+
+03/07/2025  07:33 PM    <DIR>          .
+03/07/2025  07:33 PM    <DIR>          ..
+03/07/2025  07:33 PM                12 .container_tokens.crc
+03/07/2025  07:33 PM                16 .default_container_executor.cmd.crc
+03/07/2025  07:33 PM                52 .launch_container.cmd.crc
+03/07/2025  07:33 PM             5,544 classpath-8368334402215555725.jar
+03/07/2025  07:33 PM               100 container_tokens
+03/07/2025  07:33 PM               682 default_container_executor.cmd
+03/07/2025  07:33 PM    <SYMLINKD>     job.jar [\tmp\hadoop-ellie\nm-local-dir\usercache\ellie\appcache\application_1741395786741_0002\filecache\11\job.jar]
+03/07/2025  07:33 PM    <SYMLINK>      job.xml [\tmp\hadoop-ellie\nm-local-dir\usercache\ellie\appcache\application_1741395786741_0002\filecache\13\job.xml]
+03/07/2025  07:33 PM    <DIR>          jobSubmitDir
+03/07/2025  07:33 PM             5,287 launch_container.cmd
+03/07/2025  07:33 PM    <DIR>          tmp
+               8 File(s)         11,693 bytes
+               5 Dir(s)  107,616,067,584 bytes free

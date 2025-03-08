@@ -1,0 +1,90 @@
+2025-03-07 19:32:53,944 WARN [main] org.apache.hadoop.util.Shell: Did not find winutils.exe: {}
+java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://wiki.apache.org/hadoop/WindowsProblems
+	at org.apache.hadoop.util.Shell.fileNotFoundException(Shell.java:548)
+	at org.apache.hadoop.util.Shell.getHadoopHomeDir(Shell.java:569)
+	at org.apache.hadoop.util.Shell.getQualifiedBin(Shell.java:592)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:689)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:78)
+	at org.apache.hadoop.conf.Configuration.getBoolean(Configuration.java:1689)
+	at org.apache.hadoop.security.SecurityUtil.setConfigurationInternal(SecurityUtil.java:104)
+	at org.apache.hadoop.security.SecurityUtil.<clinit>(SecurityUtil.java:88)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:312)
+	at org.apache.hadoop.security.UserGroupInformation.setConfiguration(UserGroupInformation.java:366)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:84)
+Caused by: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.
+	at org.apache.hadoop.util.Shell.checkHadoopHomeInner(Shell.java:468)
+	at org.apache.hadoop.util.Shell.checkHadoopHome(Shell.java:439)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:516)
+	... 7 more
+2025-03-07 19:32:54,014 INFO [main] org.apache.hadoop.security.SecurityUtil: Updating Configuration
+2025-03-07 19:32:54,144 INFO [main] org.apache.hadoop.metrics2.impl.MetricsConfig: Loaded properties from hadoop-metrics2.properties
+2025-03-07 19:32:54,248 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+2025-03-07 19:32:54,248 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system started
+2025-03-07 19:32:54,338 INFO [main] org.apache.hadoop.mapred.YarnChild: Executing with tokens: [Kind: mapreduce.job, Service: job_1741395786741_0001, Ident: (org.apache.hadoop.mapreduce.security.token.JobTokenIdentifier@1817f1eb)]
+2025-03-07 19:32:54,676 INFO [main] org.apache.hadoop.mapred.YarnChild: Sleeping for 0ms before retrying again. Got null now.
+2025-03-07 19:32:54,938 INFO [main] org.apache.hadoop.mapred.YarnChild: mapreduce.cluster.local.dir for child: /tmp/hadoop-ellie/nm-local-dir/usercache/ellie/appcache/application_1741395786741_0001
+2025-03-07 19:32:55,607 INFO [main] org.apache.hadoop.mapred.YarnChild: 
+/************************************************************
+[system properties]
+os.name: Windows 11
+os.version: 10.0
+java.home: C:\Java\jdk-11
+java.runtime.version: 11.0.26+7-LTS-187
+java.vendor: Oracle Corporation
+java.version: 11.0.26
+java.vm.name: Java HotSpot(TM) 64-Bit Server VM
+java.class.path: C:/tmp/hadoop-ellie/nm-local-dir/usercache/ellie/appcache/application_1741395786741_0001/container_1741395786741_0001_01_000003/classpath-4304591676167931067.jar;C:\Hadoop\hadoop-3.3.0/share/hadoop/mapreduce/lib/*;job.jar/job.jar;job.jar/lib/*;/tmp/hadoop-ellie/nm-local-dir/usercache/ellie/appcache/application_1741395786741_0001/container_1741395786741_0001_01_000003/classpath-4304591676167931067.jar;/tmp/hadoop-ellie/nm-local-dir/usercache/ellie/appcache/application_1741395786741_0001/container_1741395786741_0001_01_000003/job.jar
+java.io.tmpdir: /tmp/hadoop-ellie/nm-local-dir/usercache/ellie/appcache/application_1741395786741_0001/container_1741395786741_0001_01_000003/tmp
+user.dir: C:\tmp\hadoop-ellie\nm-local-dir\usercache\ellie\appcache\application_1741395786741_0001\container_1741395786741_0001_01_000003
+user.name: ellie
+************************************************************/
+2025-03-07 19:32:55,608 INFO [main] org.apache.hadoop.conf.Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+2025-03-07 19:32:56,147 INFO [main] org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-07 19:32:56,148 INFO [main] org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-07 19:32:56,161 INFO [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: ProcfsBasedProcessTree currently is supported only on Linux.
+2025-03-07 19:32:56,161 INFO [main] org.apache.hadoop.mapred.Task:  Using ResourceCalculatorProcessTree : null
+2025-03-07 19:32:56,167 INFO [main] org.apache.hadoop.mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@6bf13698
+2025-03-07 19:32:56,187 WARN [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system already initialized!
+2025-03-07 19:32:56,550 INFO [main] org.apache.hadoop.conf.Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+2025-03-07 19:32:56,742 INFO [main] org.apache.hadoop.mapred.Task: Task:attempt_1741395786741_0001_r_000000_0 is done. And is in the process of committing
+2025-03-07 19:32:56,754 INFO [main] org.apache.hadoop.mapred.Task: Task attempt_1741395786741_0001_r_000000_0 is allowed to commit now
+2025-03-07 19:32:56,774 INFO [main] org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: Saved output of task 'attempt_1741395786741_0001_r_000000_0' to hdfs://0.0.0.0:19000/Phase1/OutREAL
+2025-03-07 19:32:56,784 INFO [main] org.apache.hadoop.mapred.Task: Task 'attempt_1741395786741_0001_r_000000_0' done.
+2025-03-07 19:32:56,794 INFO [main] org.apache.hadoop.mapred.Task: Final Counters for attempt_1741395786741_0001_r_000000_0: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=82722
+		FILE: Number of bytes written=348315
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=0
+		HDFS: Number of bytes written=65403
+		HDFS: Number of read operations=5
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=4441
+		Reduce shuffle bytes=82722
+		Reduce input records=4441
+		Reduce output records=4441
+		Spilled Records=4441
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=5
+		Total committed heap usage (bytes)=257949696
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Output Format Counters 
+		Bytes Written=65403
+2025-03-07 19:32:56,795 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Stopping ReduceTask metrics system...
+2025-03-07 19:32:56,796 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system stopped.
+2025-03-07 19:32:56,796 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system shutdown complete.

@@ -1,0 +1,16 @@
+2025-03-07 19:32:56,205 INFO [main] org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: MergerManager: memoryLimit=601882624, maxSingleShuffleLimit=150470656, mergeThreshold=397242560, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+2025-03-07 19:32:56,209 INFO [EventFetcher for fetching Map Completion Events] org.apache.hadoop.mapreduce.task.reduce.EventFetcher: attempt_1741395786741_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+2025-03-07 19:32:56,220 INFO [EventFetcher for fetching Map Completion Events] org.apache.hadoop.mapreduce.task.reduce.EventFetcher: attempt_1741395786741_0001_r_000000_0: Got 1 new map-outputs
+2025-03-07 19:32:56,387 INFO [fetcher#5] org.apache.hadoop.mapreduce.task.reduce.Fetcher: fetcher#5 about to shuffle output of map attempt_1741395786741_0001_m_000000_0 decomp: 82718 len: 82722 to MEMORY
+2025-03-07 19:32:56,403 INFO [fetcher#5] org.apache.hadoop.mapreduce.task.reduce.InMemoryMapOutput: Read 82718 bytes from map-output for attempt_1741395786741_0001_m_000000_0
+2025-03-07 19:32:56,405 INFO [fetcher#5] org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 82718, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->82718
+2025-03-07 19:32:56,407 INFO [EventFetcher for fetching Map Completion Events] org.apache.hadoop.mapreduce.task.reduce.EventFetcher: EventFetcher is interrupted.. Returning
+2025-03-07 19:32:56,408 INFO [fetcher#5] org.apache.hadoop.mapreduce.task.reduce.ShuffleSchedulerImpl: MysteryMachine:13562 freed by fetcher#5 in 188ms
+2025-03-07 19:32:56,414 INFO [main] org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: finalMerge called with 1 in-memory map-outputs and 0 on-disk map-outputs
+2025-03-07 19:32:56,426 INFO [main] org.apache.hadoop.mapred.Merger: Merging 1 sorted segments
+2025-03-07 19:32:56,427 INFO [main] org.apache.hadoop.mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 82701 bytes
+2025-03-07 19:32:56,448 INFO [main] org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: Merged 1 segments, 82718 bytes to disk to satisfy reduce memory limit
+2025-03-07 19:32:56,449 INFO [main] org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: Merging 1 files, 82722 bytes from disk
+2025-03-07 19:32:56,451 INFO [main] org.apache.hadoop.mapreduce.task.reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+2025-03-07 19:32:56,451 INFO [main] org.apache.hadoop.mapred.Merger: Merging 1 sorted segments
+2025-03-07 19:32:56,465 INFO [main] org.apache.hadoop.mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 82701 bytes
