@@ -40,8 +40,8 @@ while (pageNum < 1000):
     search = req.get('{}{}'.format(baseURL, pageNum))
 
     #Save page content and open local copy
-    saveHTML(search.content, f"../Articles/Breitbart/raw/search/{pageNum}")
-    searchLocal = openHTML(f"../Articles/Breitbart/raw/search/{pageNum}")
+    saveHTML(search.content, f"../Articles/Breitbart/search/{pageNum}")
+    searchLocal = openHTML(f"../Articles/Breitbart/search/{pageNum}")
 
     #Open search page as BS object using html parser
     searchSoup = BS(searchLocal, 'html.parser')
@@ -62,18 +62,10 @@ while (pageNum < 1000):
         articleContent = req.get(article)
         
         #Format article URL for use as filename
-        articleFile = cleanseURL("../Articles/Breitbart/raw/", article)
+        articleFilename = cleanseURL("../Articles/Breitbart/raw/", article)
     
         #Save article locally
-        saveHTML(articleContent.content, articleFile)
-        '''articleLocal = openHTML(articleFile)
-    
-        #Open as BS object
-        articleSoup = BS(articleLocal, 'html.parser')
-    
-        
-        content = articleSoup.select(".entry-content p")
-        print(content)'''
+        saveHTML(articleContent.content, articleFilename)
         
         #Sleep for a second
         sleep(1)
