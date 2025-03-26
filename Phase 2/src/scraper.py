@@ -14,6 +14,16 @@ def openHTML(inPath):
     with open(inPath, 'rb') as file:
         return file.read()
     
+#Input: Local folder and URL
+#Output: URL cleansed for use as filename
+#Function to reformat URL as usable filename
+def cleanseURL(path, URL):
+    #Replace illegal filename characters with underscores
+    cleanURL = URL.replace("/", "_").replace(":", "_")
+    
+    #Append filename to local folder
+    return path + cleanURL
+    
 
 
 import requests as req
@@ -23,8 +33,8 @@ url = 'https://www.breitbart.com/politics/page/2/'
 
 r = req.get(url)
 
-saveHTML(r.content, "search")
-newR = openHTML("search")
+saveHTML(r.content, "../Articles/Breitbart/raw/search")
+newR = openHTML("../Articles/Breitbart/raw/search")
 
 soup = BS(newR, 'html.parser')
 articleURLS = []
@@ -36,10 +46,15 @@ print(articleContent)
 for count in range(len(articleContent)):
     articleURLS.append(articleContent[count]['href'])
     
-print(articleURLS)
-'''while(articleContent != None):
-    articleContent = soup.select_one('article h2 a')['href']
-    articleURLS.append(articleContent)
-    print(articleContent)
-
-print(articleURLS)'''
+for article in articleURLS:
+    r = req.get(article)
+    cleanArticle = cleanseURL("../Articles/Breitbart/raw/", article)
+    
+    
+    saveHTML(r.content, cleanArticle)
+    newR = openHTML(cleanArticle)
+    
+    soup = BS(newR, 'html.parser')
+    
+    content = soup.select(".entry-content p")
+    print(content)
