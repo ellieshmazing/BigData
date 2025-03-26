@@ -6,7 +6,20 @@
 def openHTML(inPath):
     with open(inPath, 'rb') as file:
         return file.read()
-
+    
+#Input: Array of SoupTags
+#Output: Content cleansed as single string without HTML tags
+#Function to cleanse paragraph array
+def cleanseArticleContent(articleContent):
+    #Declare base string to hold article
+    articleContentPlain = ""
+    
+    #Iterate through all paragraph tags and append to the end of string
+    for i in range(len(articleContent)):
+        articleContentPlain = articleContentPlain + articleContent[i].get_text()
+        
+    #Return concatenated article
+    return articleContentPlain
 
 import os
 import json
@@ -17,7 +30,8 @@ from bs4 import BeautifulSoup as BS
 articleList = []
 
 #Reformat directory path using os
-articleDir = os.fsencode('../Articles/Breitbart/Raw/')
+baseDir = '../Articles/Breitbart/Raw/'
+articleDir = os.fsencode(baseDir)
 
 #Iterate through articles in directory
 for articleFile in os.listdir(articleDir):
@@ -25,15 +39,28 @@ for articleFile in os.listdir(articleDir):
     articleFilename = os.fsdecode(articleFile)
     
     #Open HTML file, then convert to Soup object
-    articleLocal = openHTML(articleFilename)
+    articleLocal = openHTML(baseDir + articleFilename)
     articleSoup = BS(articleLocal, 'html.parser')
     
-    articleAuthor = articleSoup.select_one('script meta[name="author"]').content
-    articleTime = articleSoup.select_one('script meta[name="pubdate"]').content
-    articleTitle = articleSoup.select_one('script meta[property="og:type"]').content
-    articleContent = articleSoup.select('#MainW p')
+    #Extract necessary meta information
+    articleAuthor = articleSoup.select_one('meta[name="author"]')['content']
+    articleTime = articleSoup.select_one('meta[name="pubdate"]')['content']
+    articleTitle = articleSoup.select_one('meta[property="og:title"]')['content']
     
-    print(articleAuthor)
-    print(articleTime)
-    print(articleTitle)
-    print(articleContent)
+    #Extract and format article contents
+    articleContent = articleSoup.select('#MainW p')
+    articleContentFormatted = cleanseArticleContent(articleContent)
+    
+    #Declare dictionary to hold article
+    article = {
+        "Title": articleTitle,
+        "Time": articleTime,
+        "Author": articleAuthor,
+        "Content": articleContentFormatted
+    }
+    
+    #Append article to list
+    articleList.append(article)
+    
+with open("../Articles/Breitbart/Extracted/articles.json", "w") as f:
+    json.dump(articleList, f)
